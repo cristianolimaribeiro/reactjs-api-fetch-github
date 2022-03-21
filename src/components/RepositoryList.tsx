@@ -4,9 +4,17 @@ import { RepositoryItem } from "./RepositoryItem";
 import '../styles/repositories.scss'
 
 const API_URL = 'https://api.github.com/users/cristianolimaribeiro/repos'
+interface Repository{
+    name: string,
+    description: string,
+    html_url: string
+}
+
+
+
 export function Repositorylist(){
 
-    const [repositories, setRepositories] = useState([]); 
+    const [repositories, setRepositories] = useState<Repository[]>([]); 
 
     useEffect(() => {
         fetch(`${API_URL}`)

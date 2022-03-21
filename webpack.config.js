@@ -1,9 +1,19 @@
 ﻿const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const path = require('path')
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js'
+    },
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', 'tsx']
+    },
+
     module: {
       rules: [
         {
